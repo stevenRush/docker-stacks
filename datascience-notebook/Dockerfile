@@ -23,9 +23,9 @@ USER jovyan
 # Install Python 3 packages
 RUN conda install --yes \
     'ipywidgets=4.0*' \
-    'pandas=0.16*' \
+    'pandas=0.17*' \
     'matplotlib=1.4*' \
-    'scipy=0.15*' \
+    'scipy=0.16*' \
     'seaborn=0.6*' \
     'scikit-learn=0.16*' \
     'scikit-image=0.11*' \
@@ -37,15 +37,16 @@ RUN conda install --yes \
     'dill=0.2*' \
     'numba=0.20*' \
     'bokeh=0.9*' \
+    'xgboost=0.4*' \
     && conda clean -yt
 
 # Install Python 2 packages
 RUN conda create -p $CONDA_DIR/envs/python2 python=2.7 \
     'ipython=4.0*' \
     'ipywidgets=4.0*' \
-    'pandas=0.16*' \
+    'pandas=0.17*' \
     'matplotlib=1.4*' \
-    'scipy=0.15*' \
+    'scipy=0.16*' \
     'seaborn=0.6*' \
     'scikit-learn=0.16*' \
     'scikit-image=0.11*' \
@@ -57,6 +58,7 @@ RUN conda create -p $CONDA_DIR/envs/python2 python=2.7 \
     'dill=0.2*' \
     'numba=0.20*' \
     'bokeh=0.9*' \
+    'xgboost=0.4*' \
     pyzmq \
     && conda clean -yt
 
@@ -79,7 +81,8 @@ RUN conda install --yes \
     'r-nycflights13=0.1*' \
     'r-caret=6.0*' \
     'r-rcurl=1.95*' \
-    'r-randomforest=4.6*' && conda clean -yt
+    'r-randomforest=4.6*' \
+    'r-xgboost=0.4*' && conda clean -yt
 
 # Install IJulia packages as jovyan and then move the kernelspec out
 # to the system share location. Avoids problems with runtime UID change not 
